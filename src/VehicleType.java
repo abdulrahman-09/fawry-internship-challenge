@@ -1,7 +1,7 @@
 /**
  * Represents type of vehicle observed by the radar.
  */
-public enum CarType {
+public enum VehicleType {
     PRIVATE,
     TRUCK,
     BUS

@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public record RadarObservation(
         String plateNumber,
         LocalDateTime observedAt,
-        CarType carType,
+        VehicleType vehicleType,
         int speed,
         boolean isSeatbeltFastened
 ) {
