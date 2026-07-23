@@ -11,7 +11,7 @@ public final class Fine {
 
     public Fine(String plateNumber, List<Violation> violations){
         this.plateNumber = plateNumber;
-        this.violations = violations;
+        this.violations = List.copyOf(violations);
         this.totalFees = violations.stream()
                 .mapToInt(Violation::fee)
                 .sum();

@@ -31,8 +31,8 @@ public class Main {
             }
         }
 
-        System.out.println("--- getAllPossibleFines ---");
-        for (Map.Entry<String, Integer> entry : radar.getAllPossibleFines().entrySet()) {
+        System.out.println("--- Fine totals by plate ---");
+        for (Map.Entry<String, Integer> entry : radar.getTotalFinesByPlate().entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue() + " EGP");
         }
 

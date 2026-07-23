@@ -36,10 +36,10 @@ public class QuantumRadar {
         return fine;
     }
 
-    public Map<String, Integer> getAllPossibleFines() {
+    public Map<String, Integer> getTotalFinesByPlate() {
         Map<String, Integer> result = new LinkedHashMap<>();
         for (Fine fine : issuedFines) {
-            result.put(fine.getPlateNumber(), fine.getTotalFees());
+            result.merge(fine.getPlateNumber(), fine.getTotalFees(), Integer::sum);
         }
         return result;
     }
