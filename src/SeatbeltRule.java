@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Enforce that the seatbelt must be fastened, regardless of vehicle type.
@@ -11,11 +12,11 @@ public class SeatbeltRule implements TrafficRule{
     }
 
     @Override
-    public List<Violation> evaluate(RadarObservation observation) {
+    public Optional<Violation> evaluate(RadarObservation observation) {
         if (!observation.isSeatbeltFastened()){
-            return List.of(new Violation(getName(), "Seatbelt not fastened", fee));
+            return Optional.of(new Violation(getName(), "Seatbelt not fastened", fee));
         }
-        return List.of();
+        return Optional.empty();
     }
 
     @Override

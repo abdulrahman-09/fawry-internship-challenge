@@ -1,4 +1,6 @@
 import java.util.List;
+import java.util.Optional;
+
 /**
  * Enforces a maximum speed for one specific vehicle type.
  * Each vehicle gets its own rule instance.
@@ -15,15 +17,15 @@ public class SpeedLimitRule implements TrafficRule{
     }
 
     @Override
-    public List<Violation> evaluate(RadarObservation observation) {
+    public Optional<Violation> evaluate(RadarObservation observation) {
         if (observation.vehicleType().equals(vehicleType) && observation.speed() > speedLimit){
-            return List.of(new Violation(
+            return Optional.of(new Violation(
                     getName(),
                     "Speed of: " + observation.speed() + " exceeded max allowed: " + speedLimit,
                     fee
             ));
         }
-        return List.of();
+        return Optional.empty();
     }
 
     @Override

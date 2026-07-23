@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Represents the core traffic radar processing engine.
@@ -24,11 +21,11 @@ public class QuantumRadar {
     public Fine process(RadarObservation observation){
         List<Violation> collected = new ArrayList<>();
         for (TrafficRule rule : rules){
-            List<Violation> found = rule.evaluate(observation);
-            for (Violation v : found){
+            Optional<Violation> found = rule.evaluate(observation);
+            found.ifPresent(v -> {
                 violationCounts.merge(v.ruleName(), 1, Integer::sum);
-            }
-            collected.addAll(found);
+                collected.add(v);
+            });
         }
 
         if (collected.isEmpty()){
