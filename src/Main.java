@@ -14,9 +14,9 @@ public class Main {
         radar.addRule(new SpeedLimitRule(VehicleType.BUS, 70, 250));
 
         List<RadarObservation> observations = List.of(
-                new RadarObservation("ABC1234", LocalDateTime.of(2026, 7, 19, 0, 0), VehicleType.PRIVATE, 94, false),
-                new RadarObservation("XYZ7788", LocalDateTime.of(2026, 7, 23, 0, 0), VehicleType.TRUCK, 55, true),
-                new RadarObservation("TRK9091", LocalDateTime.of(2026, 7, 24, 1, 7), VehicleType.TRUCK, 70, false),
+                new RadarObservation("XYZ7788", LocalDateTime.of(2026, 7, 19, 0, 0), VehicleType.PRIVATE, 94, false),
+                new RadarObservation("XYZ7788", LocalDateTime.of(2026, 7, 23, 0, 0), VehicleType.TRUCK, 55, false),
+                new RadarObservation("XYZ7788", LocalDateTime.of(2026, 7, 24, 1, 7), VehicleType.TRUCK, 70, false),
                 new RadarObservation("BUS2244", LocalDateTime.of(2026, 7, 19, 0, 0), VehicleType.BUS, 85, true)
         );
 
